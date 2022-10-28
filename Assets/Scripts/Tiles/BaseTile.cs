@@ -13,6 +13,8 @@ public class BaseTile : MonoBehaviour
 
     public BaseUnit occupyingUnit;
 
+    public BaseItem itemOnTile;
+
     public List<BaseTile> neighboringTiles;
     private static readonly List<Vector2> tileNeighboorDirections = new List<Vector2>() {
             new Vector2(0, 1), new Vector2(-1, 0), new Vector2(0, -1), new Vector2(1, 0),
@@ -67,6 +69,15 @@ public class BaseTile : MonoBehaviour
 
         unit.setOccupiedTile(this);
         occupyingUnit = unit;
+    }
+
+    public void setItemOnTile(BaseItem item) {
+        if (item == null) {
+            return;
+        }
+
+        itemOnTile = item;
+        itemOnTile.transform.position = tilePosition;
     }
     //End Tile Utility
 }

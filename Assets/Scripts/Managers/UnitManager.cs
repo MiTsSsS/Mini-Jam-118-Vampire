@@ -6,10 +6,17 @@ public class UnitManager : MonoBehaviour
 {
     public static UnitManager instance;
 
-    public PlayerUnit playerPrefab, player, enemyPrefab, enemy;
+    public PlayerUnit playerPrefab, player;
+    public BaseEnemy enemyPrefab, enemy;
+
+    public List<BaseEnemy> activeEnemies;
 
     private void Awake() {
         instance = this;
+    }
+
+    private void Start() {
+        activeEnemies = new List<BaseEnemy>();
     }
 
     public void spawnPlayer() {
@@ -26,6 +33,7 @@ public class UnitManager : MonoBehaviour
         if (enemyTile != null) {
             enemy = Instantiate(enemyPrefab, enemyTile.transform.position, Quaternion.identity);
             enemyTile.setUnitOnTile(enemy);
+            activeEnemies.Add(enemy);
         }
     }
 }

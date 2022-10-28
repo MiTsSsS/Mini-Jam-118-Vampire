@@ -13,6 +13,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] private BaseTile tile;
 
     private Dictionary<Vector2, BaseTile> tiles;
+    public Weapon testItem;
 
     private void Start() {
         tiles = new Dictionary<Vector2, BaseTile>();
@@ -31,6 +32,10 @@ public class GridManager : MonoBehaviour
                 spawnedTile.name = $"Tile {i}, {j}";
                 spawnedTile.setTilePosition(new Vector2Int(i, j));
 
+                if(i == 0 && j == 0) {
+                    Instantiate(testItem, new Vector3(0, 0, 0), Quaternion.identity);
+                    spawnedTile.setItemOnTile(testItem);
+                }
                 tiles[new Vector2(i, j)] = spawnedTile;
             }
         }

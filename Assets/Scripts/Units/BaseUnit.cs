@@ -8,9 +8,11 @@ public class BaseUnit : MonoBehaviour
 {
     [SerializeField] private BaseTile occupiedTile;
 
-    public int hp;
+    public int hp, baseDamage;
 
     public string unitName;
+
+    public Weapon weapon;
 
     public UnitType unitType;
 
@@ -36,6 +38,8 @@ public class BaseUnit : MonoBehaviour
             Destroy(this);
         }
     }
+
+    public virtual void pickupItem(BaseItem item) {}
     //End Combat
 }
 
