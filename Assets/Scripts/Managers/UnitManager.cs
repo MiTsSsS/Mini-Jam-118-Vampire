@@ -24,7 +24,7 @@ public class UnitManager : MonoBehaviour
         BaseTile enemyTile = GridManager.instance.getTileAtPosition(new Vector2(6, 5));
 
         if (playerTile != null) {
-            player = Instantiate(playerPrefab, playerTile.transform.position, Quaternion.identity);
+            player = Instantiate(playerPrefab, playerTile.transform.position, Quaternion.identity); 
             playerTile.setUnitOnTile(player);
 
             GameManager.instance.setupCamera(player);

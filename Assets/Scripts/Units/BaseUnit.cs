@@ -35,11 +35,9 @@ public class BaseUnit : MonoBehaviour
         hp -= damageValue;
         Debug.Log("Damage taken: " + damageValue);
         if (hp <= 0) {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
-
-    public virtual void pickupItem(BaseItem item) {}
     //End Combat
 }
 

@@ -79,5 +79,13 @@ public class BaseTile : MonoBehaviour
         itemOnTile = item;
         itemOnTile.transform.position = tilePosition;
     }
+
+    public void removeItemFromTile(BaseItem item) {
+        if (itemOnTile != null) {
+            itemOnTile = null;
+        }
+
+        Destroy(item.gameObject);
+    }
     //End Tile Utility
 }

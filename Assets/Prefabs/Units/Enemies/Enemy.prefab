@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupiedTile: {fileID: 0}
   hp: 100
+  baseDamage: 7
   unitName: Ogre
-  weapon: {fileID: 0}
   unitType: 1
+  stance: 1

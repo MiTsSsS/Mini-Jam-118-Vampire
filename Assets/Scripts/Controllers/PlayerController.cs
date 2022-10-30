@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     [SerializeField] private PlayerUnit playerCharacter;
 
     void Update() {
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
     }
 
     //Movement
-    
+    public void flipPlayerSprite(int direction) {
+        
+    }
     //End Movement
 }
