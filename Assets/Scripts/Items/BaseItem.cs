@@ -15,7 +15,7 @@ public class BaseItem : MonoBehaviour
 
     public static BaseItem dropItem(Item item) {
         BaseItem itemInWorld = spawnItemInWorld(item, GridManager.instance.getTileAtPosition(UnitManager.instance.player.getOccupiedTile().tilePosition));
-        
+       
         return itemInWorld;
     }
 

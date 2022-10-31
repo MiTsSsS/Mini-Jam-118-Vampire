@@ -52,6 +52,10 @@ public class GridManager : MonoBehaviour
                     BaseItem.spawnItemInWorld(new Item { itemType = Item.ItemType.ShortSword, amount = 1 }, spawnedTile);
                 }
 
+                if (i == 4 && j == 5) {
+                    BaseItem.spawnItemInWorld(new Item { itemType = Item.ItemType.ShortBow, amount = 1 }, spawnedTile);
+                }
+
                 tiles[new Vector2(i, j)] = spawnedTile;
             }
         }

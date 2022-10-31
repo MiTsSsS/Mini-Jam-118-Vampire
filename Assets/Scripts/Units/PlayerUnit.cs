@@ -64,6 +64,14 @@ public class PlayerUnit : BaseUnit
             case Item.ItemType.ShortSword:
                 equipWeapon(item, WeaponType.Melee, 10);
                 break;
+
+            case Item.ItemType.ShortBow:
+                equipWeapon(item, WeaponType.Ranged, 8);
+                break;
+
+            case Item.ItemType.Blood:
+                heal(10);
+                break;
         }
     }
     
@@ -75,5 +83,10 @@ public class PlayerUnit : BaseUnit
         weapon = new Weapon(damage, item.amount, item.itemType, weaponType);
         weaponInPrefab.GetComponent<SpriteRenderer>().sprite = item.getSprite();
         inventory.removeItem(item);
+    }
+
+    public void heal(int value) {
+        hp += value;
+        Debug.Log("Health: " + hp);
     }
 }

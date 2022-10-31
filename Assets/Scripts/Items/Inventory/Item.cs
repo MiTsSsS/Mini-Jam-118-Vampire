@@ -11,13 +11,15 @@ public class Item {
             default:
             
             case ItemType.ShortSword:   return ItemAssets.instance.shortSwordSprite;
+            case ItemType.ShortBow:     return ItemAssets.instance.bowSprite;
             case ItemType.Blood:        return ItemAssets.instance.pureBloodSprite;
         }
     }
 
     public enum ItemType {
         Blood,
-        ShortSword
+        ShortSword,
+        ShortBow
     }
 
     public bool isStackable() {
@@ -25,6 +27,7 @@ public class Item {
             default:
 
             case ItemType.ShortSword:
+            case ItemType.ShortBow:
                 return false;
 
             case ItemType.Blood:
