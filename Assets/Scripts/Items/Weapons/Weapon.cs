@@ -5,11 +5,13 @@ using UnityEngine;
 public class Weapon : Item
 {
     public int damage;
+    public WeaponType weaponType;
 
-    public Weapon(int damage, int amount, Item.ItemType itemType) {
+    public Weapon(int damage, int amount, Item.ItemType itemType, WeaponType weaponType) {
         this.damage = damage;
         this.amount = amount;
         this.itemType = itemType;
+        this.weaponType = weaponType;
     }
 }
 

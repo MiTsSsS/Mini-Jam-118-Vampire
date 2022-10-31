@@ -62,17 +62,17 @@ public class PlayerUnit : BaseUnit
     private void useItem(Item item) {
         switch(item.itemType) {
             case Item.ItemType.ShortSword:
-                equipWeapon(item);
+                equipWeapon(item, WeaponType.Melee, 10);
                 break;
         }
     }
     
-    private void equipWeapon(Item item) {
+    private void equipWeapon(Item item, WeaponType weaponType, int damage) {
         if(weapon != null) {
             inventory.addItem(weapon);
         }
 
-        weapon = new Weapon(10, item.amount, item.itemType);
+        weapon = new Weapon(damage, item.amount, item.itemType, weaponType);
         weaponInPrefab.GetComponent<SpriteRenderer>().sprite = item.getSprite();
         inventory.removeItem(item);
     }

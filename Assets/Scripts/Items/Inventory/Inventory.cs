@@ -56,7 +56,9 @@ public class Inventory {
             if (itemInInventory != null && itemInInventory.amount <= 0) {
                 items.Remove(itemInInventory);
             }
-        } else {
+        }
+        
+        else {
             items.Remove(item);
         }
 

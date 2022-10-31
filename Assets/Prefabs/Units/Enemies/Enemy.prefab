@@ -102,4 +102,4 @@ MonoBehaviour:
   baseDamage: 7
   unitName: Ogre
   unitType: 1
-  stance: 1
+  stance: 0
