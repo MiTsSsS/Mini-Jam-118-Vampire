@@ -6,8 +6,10 @@ public class Weapon : Item
 {
     public int damage;
 
-    public Weapon(int damage) {
+    public Weapon(int damage, int amount, Item.ItemType itemType) {
         this.damage = damage;
+        this.amount = amount;
+        this.itemType = itemType;
     }
 }
 

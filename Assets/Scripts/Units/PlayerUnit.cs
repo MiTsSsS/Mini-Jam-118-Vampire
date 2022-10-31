@@ -33,7 +33,7 @@ public class PlayerUnit : BaseUnit
             if (otherUnit.unitType == UnitType.Enemy) {
                 if (weapon != null) {
                     otherUnit.takeDamage(weapon.damage);
-                } 
+                }
                 
                 else {
                     otherUnit.takeDamage(baseDamage);
@@ -42,7 +42,7 @@ public class PlayerUnit : BaseUnit
                 takeDamage(((BaseEnemy)otherUnit).calculateOutgoingDamage());
                 return;
             }
-        } 
+        }
         
         else if(targetTile.itemOnTile != null) {
             pickupItem(targetTile.itemOnTile);
@@ -66,9 +66,14 @@ public class PlayerUnit : BaseUnit
                 break;
         }
     }
-
+    
     private void equipWeapon(Item item) {
-        weapon = new Weapon(7);
+        if(weapon != null) {
+            inventory.addItem(weapon);
+        }
+
+        weapon = new Weapon(10, item.amount, item.itemType);
         weaponInPrefab.GetComponent<SpriteRenderer>().sprite = item.getSprite();
+        inventory.removeItem(item);
     }
 }
