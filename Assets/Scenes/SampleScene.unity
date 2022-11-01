@@ -788,6 +788,7 @@ MonoBehaviour:
   shortSwordSprite: {fileID: 21300000, guid: 0441beaa6003b994493dfaa908683839, type: 3}
   pureBloodSprite: {fileID: 21300000, guid: 38d095b7923cb2544986f0ed0e680a48, type: 3}
   bowSprite: {fileID: 21300000, guid: 28b26522c57ecaf4cac10fdfa6762756, type: 3}
+  arrowPrefab: {fileID: 3155152144125780413, guid: 2ee2cea44e6712e4fa734cbe40cceb0a, type: 3}
 --- !u!1 &1135497841
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,6 +34,7 @@ public class BaseUnit : MonoBehaviour
     public void takeDamage(int damageValue) {
         hp -= damageValue;
         Debug.Log("Damage taken: " + damageValue);
+        Debug.Log("New Hp: " + hp);
         if (hp <= 0) {
             Destroy(gameObject);
         }

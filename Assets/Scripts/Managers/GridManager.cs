@@ -12,8 +12,9 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private BaseTile tile;
 
+    public BaseTile hoveredTile;
+
     private Dictionary<Vector2, BaseTile> tiles;
-    public Weapon testItem;
 
     private void Start() {
         tiles = new Dictionary<Vector2, BaseTile>();

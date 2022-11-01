@@ -70,6 +70,7 @@ public class PlayerUnit : BaseUnit
                 break;
 
             case Item.ItemType.Blood:
+                inventory.removeItem(new Item { itemType = Item.ItemType.Blood, amount = 1 });
                 heal(10);
                 break;
         }
@@ -82,6 +83,12 @@ public class PlayerUnit : BaseUnit
 
         weapon = new Weapon(damage, item.amount, item.itemType, weaponType);
         weaponInPrefab.GetComponent<SpriteRenderer>().sprite = item.getSprite();
+
+        if(weaponType == WeaponType.Ranged) {
+            weapon.weaponAmmoPrefab = item.getWeaponAmmoPrefab();
+
+        }
+
         inventory.removeItem(item);
     }
 

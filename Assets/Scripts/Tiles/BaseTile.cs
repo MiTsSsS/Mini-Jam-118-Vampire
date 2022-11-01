@@ -27,6 +27,7 @@ public class BaseTile : MonoBehaviour
 
     //Mouse Events
     private void OnMouseEnter() {
+        GridManager.instance.hoveredTile = this;
         tileHighlight.SetActive(true);
     }
 
@@ -35,7 +36,7 @@ public class BaseTile : MonoBehaviour
     }
 
     private void OnMouseDown() {
-        setUnitOnTile(UnitManager.instance.player);
+        //setUnitOnTile(UnitManager.instance.player);
     }
     //End Mouse Events
     
