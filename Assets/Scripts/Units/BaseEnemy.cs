@@ -9,12 +9,28 @@ using UnityEngine;
 public class BaseEnemy : BaseUnit {
     public EnemyStance stance;
 
+    public bool isPlayerInRange = false;
+
+    public CircleCollider2D playerDetectionRadius;
+
     private void OnEnable() {
         PlayerUnit.OnPlayerMove += moveEnemy;
     }
 
     private void OnDisable() {
         PlayerUnit.OnPlayerMove -= moveEnemy;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.otherCollider == playerDetectionRadius) {
+            Debug.Log("DETECTING");
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.otherCollider == playerDetectionRadius) {
+            Debug.Log("OUTTT");
+        }
     }
 
     //Movement
@@ -54,7 +70,7 @@ public class BaseEnemy : BaseUnit {
             isPlayerYGreater = true;
         }
 
-        if (stance == EnemyStance.Aggressive) {
+        if (stance == EnemyStance.Aggressive && isPlayerInRange) {
             if (isPlayerXGreater) {
                 directionFromPlayer.x = -1;
             }
@@ -64,7 +80,7 @@ public class BaseEnemy : BaseUnit {
             }
         }
         
-        else if (stance == EnemyStance.Defensive) {
+        else if (stance == EnemyStance.Defensive && isPlayerInRange) {
             if (!isPlayerXGreater) {
                 directionFromPlayer.x = -1;
             }

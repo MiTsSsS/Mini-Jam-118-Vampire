@@ -72,7 +72,7 @@ public class PlayerUnit : BaseUnit
             case Item.ItemType.Blood:
                 inventory.removeItem(new Item { itemType = Item.ItemType.Blood, amount = 1 });
                 heal(10);
-                break;
+                break; 
         }
     }
     
@@ -90,10 +90,5 @@ public class PlayerUnit : BaseUnit
         }
 
         inventory.removeItem(item);
-    }
-
-    public void heal(int value) {
-        hp += value;
-        Debug.Log("Health: " + hp);
     }
 }

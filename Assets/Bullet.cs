@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,13 +15,15 @@ public class Bullet : MonoBehaviour
         var dir = (target.position - transform.position).normalized;
         transform.position += dir * speed * Time.deltaTime;
 
-        if (Mathf.Clamp(transform.position.x, target.position.x - 0.25f, target.position.x + 0.25f) == transform.position.x) {
+        if (Mathf.Clamp(transform.position.x, target.position.x - 0.25f, target.position.x + 0.25f) == transform.position.x &&
+            Mathf.Clamp(transform.position.y, target.position.y - 0.25f, target.position.y + 0.25f) == transform.position.y) {
             Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.CompareTag("Ground") || collision.CompareTag("Bullet")) {
+        if(collision.CompareTag("Ground") || collision.CompareTag("Bullet") || collision.CompareTag("Player")) {
+            if (collision.CompareTag("Player")) Debug.Log(collision.name);
             return;
         }
 
@@ -38,12 +41,12 @@ public class Bullet : MonoBehaviour
         if (dirPos.x < initialPosition.x) {
             if (dirPos.y < initialPosition.y) {
                 rotationOffset = 125;
-            } 
+            }
             
             else {
                 rotationOffset = 45;
             }
-        } 
+        }
         
         else {
             if(dirPos.y > initialPosition.y) {
@@ -56,10 +59,12 @@ public class Bullet : MonoBehaviour
         }
 
         if(transform.position.x == dirPos.x && dirPos.y < initialPosition.y) {
+            Debug.Log("SHOT DOWN");
             rotationOffset = 180;
         }
 
         if (transform.position.x == dirPos.x && dirPos.y > initialPosition.y) {
+            Debug.Log("SHOT UP");
             rotationOffset = 0;
         }
 
