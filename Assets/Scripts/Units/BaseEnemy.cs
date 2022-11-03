@@ -5,13 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BaseEnemy : BaseUnit {
     public EnemyStance stance;
 
     public bool isPlayerInRange = false;
-
-    public CircleCollider2D playerDetectionRadius;
 
     private void OnEnable() {
         PlayerUnit.OnPlayerMove += moveEnemy;
@@ -21,16 +20,12 @@ public class BaseEnemy : BaseUnit {
         PlayerUnit.OnPlayerMove -= moveEnemy;
     }
 
-    public void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.otherCollider == playerDetectionRadius) {
-            Debug.Log("DETECTING");
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision) {
-        if (collision.otherCollider == playerDetectionRadius) {
-            Debug.Log("OUTTT");
-        }
+    [System.Serializable]
+    public struct ItemDropRate {
+        public int common;
+        public int rare;
+        public int epic;
+        public int artifact;
     }
 
     //Movement
@@ -70,23 +65,23 @@ public class BaseEnemy : BaseUnit {
             isPlayerYGreater = true;
         }
 
-        if (stance == EnemyStance.Aggressive && isPlayerInRange) {
+        if (stance == EnemyStance.Aggressive) {
             if (isPlayerXGreater) {
-                directionFromPlayer.x = -1;
+                directionFromPlayer.x = Random.Range(0, 100) < 50? -1 : 0;
             }
 
             if (isPlayerYGreater) {
-                directionFromPlayer.y = -1;
+                directionFromPlayer.y = directionFromPlayer.x == 0? -1 : 0;
             }
         }
         
-        else if (stance == EnemyStance.Defensive && isPlayerInRange) {
+        else if (stance == EnemyStance.Defensive) {
             if (!isPlayerXGreater) {
-                directionFromPlayer.x = -1;
+                directionFromPlayer.x = Random.Range(0, 100) < 50 ? -1 : 0;
             }
 
             if(GridManager.instance.getTileAtPosition(getOccupiedTile().tilePosition - directionFromPlayer) == null) {
-                directionFromPlayer.y = -1;
+                directionFromPlayer.y = directionFromPlayer.x == 0 ? -1 : 0;
             }
         }
 
@@ -100,8 +95,8 @@ public class BaseEnemy : BaseUnit {
     //End Movement
 
     //Combat
-    public int calculateOutgoingDamage() {
-        return baseDamage;
+    public float calculateOutgoingDamage() {
+        return unitStats.baseDamage;
     }
 }
 

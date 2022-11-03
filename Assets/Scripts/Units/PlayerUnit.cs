@@ -36,7 +36,7 @@ public class PlayerUnit : BaseUnit
                 }
                 
                 else {
-                    otherUnit.takeDamage(baseDamage);
+                    otherUnit.takeDamage(unitStats.baseDamage);
                 }
 
                 takeDamage(((BaseEnemy)otherUnit).calculateOutgoingDamage());
@@ -66,13 +66,13 @@ public class PlayerUnit : BaseUnit
                 break;
 
             case Item.ItemType.ShortBow:
-                equipWeapon(item, WeaponType.Ranged, 8);
+                equipWeapon(item, WeaponType.Ranged, 3);
                 break;
 
             case Item.ItemType.Blood:
                 inventory.removeItem(new Item { itemType = Item.ItemType.Blood, amount = 1 });
                 heal(10);
-                break; 
+                break;
         }
     }
     

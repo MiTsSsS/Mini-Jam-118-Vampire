@@ -12,6 +12,8 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private BaseTile tile;
 
+    [SerializeField] private List<Sprite> tileSprites;
+
     public BaseTile hoveredTile;
 
     private Dictionary<Vector2, BaseTile> tiles;
@@ -29,9 +31,12 @@ public class GridManager : MonoBehaviour
     public void generateGrid() {
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
+                int randomizedIndexForTiles = Random.Range(0, tileSprites.Count);
+
                 var spawnedTile = Instantiate(tile, new Vector3(i, j), Quaternion.identity);
                 spawnedTile.name = $"Tile {i}, {j}";
                 spawnedTile.setTilePosition(new Vector2Int(i, j));
+                spawnedTile.GetComponent<SpriteRenderer>().sprite = tileSprites[randomizedIndexForTiles];
 
                 if(i == 0 && j == 0) {
                     BaseItem.spawnItemInWorld(new Item { itemType = Item.ItemType.Blood, amount = 1 }, spawnedTile);

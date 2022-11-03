@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     private void Update() {
         var dir = (target.position - transform.position).normalized;
-        transform.position += dir * speed * Time.deltaTime;
+        transform.position += speed * Time.deltaTime * dir;
 
         if (Mathf.Clamp(transform.position.x, target.position.x - 0.25f, target.position.x + 0.25f) == transform.position.x &&
             Mathf.Clamp(transform.position.y, target.position.y - 0.25f, target.position.y + 0.25f) == transform.position.y) {
@@ -21,11 +21,16 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    /*private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.)
+    }*/
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.CompareTag("Ground") || collision.CompareTag("Bullet") || collision.CompareTag("Player")) {
             if (collision.CompareTag("Player")) Debug.Log(collision.name);
             return;
         }
+        // ||(collision.CompareTag("Enemy") && collision == collision.GetComponent<CircleCollider2D>())
 
         Debug.Log(collision.name);
         collision.GetComponent<BaseUnit>().takeDamage(damage);

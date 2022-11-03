@@ -47,8 +47,7 @@ public class BaseTile : MonoBehaviour
         }
 
         unit.transform.position = tilePosition;
-        setOccupyingUnit(unit);
-        
+        setOccupyingUnit(unit); 
     }
 
     public void setTilePosition(Vector2 pos) {

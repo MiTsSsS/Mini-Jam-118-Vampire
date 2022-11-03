@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 public class BaseUnit : MonoBehaviour
 {
     [SerializeField] private BaseTile occupiedTile;
-
-    public int hp, maxHp, baseDamage;
 
     public string unitName;
 
@@ -19,8 +18,19 @@ public class BaseUnit : MonoBehaviour
 
     public Healthbar healthbar;
 
+    public Stats unitStats;
+
+    [System.Serializable]
+    public struct Stats {
+        public float hp;
+        public float maxHp;
+        public float baseDamage;
+        public float physicalDamageResist;
+        public float spellDamageResist;
+    }
+
     private void Start() {
-        healthbar.setMaxHpValue(maxHp);
+        healthbar.setMaxHpValue(unitStats.maxHp);
     }
 
     public void setUnitType(UnitType type) {
@@ -38,21 +48,32 @@ public class BaseUnit : MonoBehaviour
     //End Tile Related Functions
 
     //Combat
-    public void takeDamage(int damageValue) {
-        hp -= damageValue;
+    public void takeDamage(float damageValue) {
+        unitStats.hp -= damageValue;
         Debug.Log("Damage taken: " + damageValue);
-        Debug.Log("New Hp: " + hp);
-        if (hp <= 0) {
+        Debug.Log("New Hp: " + unitStats.hp);
+        if (unitStats.hp <= 0) {
             Destroy(gameObject);
         }
 
-        healthbar.setHp(hp);
+        healthbar.setHp(unitStats.hp);
     }
 
-    public void heal(int value) {
-        hp += value;
-        healthbar.setHp(hp);
-        Debug.Log("Health: " + hp);
+    public void heal(float value) {
+        if(unitStats.hp == unitStats.maxHp) {
+            return;
+        }
+
+        if(unitStats.hp + value > unitStats.maxHp) {
+            unitStats.hp = unitStats.maxHp;
+        }
+
+        else {
+            unitStats.hp += value;
+        }
+
+        healthbar.setHp(unitStats.hp);
+        Debug.Log("Health: " + unitStats.hp);
     }
     //End Combat
 }

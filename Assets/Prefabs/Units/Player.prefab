@@ -178,12 +178,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupiedTile: {fileID: 0}
-  hp: 100
-  maxHp: 100
-  baseDamage: 5
   unitName: Player
   unitType: 0
   healthbar: {fileID: 5680995033218920116}
+  unitStats:
+    hp: 100
+    maxHp: 100
+    baseDamage: 5
+    physicalDamageResist: 0
+    spellDamageResist: 0
   inventoryUI: {fileID: 0}
   weaponInPrefab: {fileID: 4212577458750228855}
 --- !u!114 &8009152842381857599

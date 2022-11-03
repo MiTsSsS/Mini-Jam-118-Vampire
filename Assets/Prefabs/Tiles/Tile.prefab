@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5824009768439697279}
   - component: {fileID: 1607351252050757881}
   m_Layer: 0
-  m_Name: GrassTile
+  m_Name: Tile
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: c28e4c2536b1e8449b3f49c1ac4875df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
