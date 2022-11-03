@@ -8,7 +8,18 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class BaseEnemy : BaseUnit {
+
+    [System.Serializable]
+    public struct ItemDropRate {
+        public int common;
+        public int rare;
+        public int epic;
+        public int artifact;
+    }
+
     public EnemyStance stance;
+
+    public ItemDropRate itemDropRate;
 
     public bool isPlayerInRange = false;
 
@@ -18,14 +29,6 @@ public class BaseEnemy : BaseUnit {
 
     private void OnDisable() {
         PlayerUnit.OnPlayerMove -= moveEnemy;
-    }
-
-    [System.Serializable]
-    public struct ItemDropRate {
-        public int common;
-        public int rare;
-        public int epic;
-        public int artifact;
     }
 
     //Movement

@@ -75,6 +75,10 @@ public class BaseUnit : MonoBehaviour
         healthbar.setHp(unitStats.hp);
         Debug.Log("Health: " + unitStats.hp);
     }
+
+    public void onUnitDie(UnitType type) {
+
+    }
     //End Combat
 }
 
