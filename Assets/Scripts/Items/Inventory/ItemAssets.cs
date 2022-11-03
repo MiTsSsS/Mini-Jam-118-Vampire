@@ -14,6 +14,8 @@ public class ItemAssets : MonoBehaviour {
     public Sprite shortSwordSprite;
     public Sprite pureBloodSprite;
     public Sprite bowSprite;
+    public Sprite crossbowSprite;
 
     public GameObject arrowPrefab;
+    public GameObject boltPrefab;
 }

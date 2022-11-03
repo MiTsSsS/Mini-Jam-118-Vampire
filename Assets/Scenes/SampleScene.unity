@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fccc0f4b4b07b0643bd9d1a718cf760f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryUi: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +795,9 @@ MonoBehaviour:
   shortSwordSprite: {fileID: 21300000, guid: 0441beaa6003b994493dfaa908683839, type: 3}
   pureBloodSprite: {fileID: 21300000, guid: 38d095b7923cb2544986f0ed0e680a48, type: 3}
   bowSprite: {fileID: 21300000, guid: 28b26522c57ecaf4cac10fdfa6762756, type: 3}
+  crossbowSprite: {fileID: 21300000, guid: 16342746a57212547b843935aa78fd57, type: 3}
   arrowPrefab: {fileID: 3155152144125780413, guid: 2ee2cea44e6712e4fa734cbe40cceb0a, type: 3}
+  boltPrefab: {fileID: 3155152144125780413, guid: 7df1d4c0824689842b9e563a9218ebf4, type: 3}
 --- !u!1 &1135497841
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,8 +821,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135497841}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11271845, y: -0.41832322, z: -2.8004444}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.11271846, y: -0.41832322, z: -2.8004444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

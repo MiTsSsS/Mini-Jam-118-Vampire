@@ -11,7 +11,10 @@ public class UI_Inventory : MonoBehaviour {
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
 
+    public GameObject inventoryUi;
+
     private void Awake() {
+        inventoryUi = GameObject.Find("UI");
         itemSlotContainer = transform.Find("ItemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("ItemSlotTemplate");
     }

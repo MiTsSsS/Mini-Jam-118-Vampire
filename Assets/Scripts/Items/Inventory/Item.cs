@@ -14,22 +14,24 @@ public class Item {
             case ItemType.ShortSword:   return ItemAssets.instance.shortSwordSprite;
             case ItemType.ShortBow:     return ItemAssets.instance.bowSprite;
             case ItemType.Blood:        return ItemAssets.instance.pureBloodSprite;
+            case ItemType.Crossbow:     return ItemAssets.instance.crossbowSprite;
         }
     }
 
     public GameObject getWeaponAmmoPrefab() {
         switch (itemType) {
             default:
-
-            case ItemType.ShortBow:     return ItemAssets.instance.arrowPrefab;
             
+            case ItemType.ShortBow:     return ItemAssets.instance.arrowPrefab;
+            case ItemType.Crossbow:     return ItemAssets.instance.boltPrefab;
         }
     }
 
     public enum ItemType {
         Blood,
         ShortSword,
-        ShortBow
+        ShortBow,
+        Crossbow
     }
 
     public bool isStackable() {
@@ -38,6 +40,7 @@ public class Item {
 
             case ItemType.ShortSword:
             case ItemType.ShortBow:
+            case ItemType.Crossbow:
                 return false;
 
             case ItemType.Blood:

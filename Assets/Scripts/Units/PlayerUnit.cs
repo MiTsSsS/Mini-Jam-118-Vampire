@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerUnit : BaseUnit
 {
     private Inventory inventory;
-    [SerializeField] private UI_Inventory inventoryUI;
+    public UI_Inventory inventoryUI;
 
     public delegate void PlayerMove();
     public static event PlayerMove OnPlayerMove;
@@ -66,7 +66,11 @@ public class PlayerUnit : BaseUnit
                 break;
 
             case Item.ItemType.ShortBow:
-                equipWeapon(item, WeaponType.Ranged, 3);
+                equipWeapon(item, WeaponType.Ranged, 11);
+                break;
+
+            case Item.ItemType.Crossbow:
+                equipWeapon(item, WeaponType.Ranged, 13);
                 break;
 
             case Item.ItemType.Blood:
@@ -86,7 +90,6 @@ public class PlayerUnit : BaseUnit
 
         if(weaponType == WeaponType.Ranged) {
             weapon.weaponAmmoPrefab = item.getWeaponAmmoPrefab();
-
         }
 
         inventory.removeItem(item);
