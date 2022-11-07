@@ -78,6 +78,7 @@ public class BaseUnit : MonoBehaviour
         unitStats.hp -= damageValue;
         Debug.Log("Damage taken: " + damageValue);
         Debug.Log("New Hp: " + unitStats.hp);
+
         if (unitStats.hp <= 0) {
             onUnitDie(unitType);
         }

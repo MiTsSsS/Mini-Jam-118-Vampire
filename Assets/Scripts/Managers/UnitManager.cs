@@ -36,4 +36,14 @@ public class UnitManager : MonoBehaviour
             activeEnemies.Add(enemy);
         }
     }
+
+    public void spawnEnemy() {
+        BaseTile enemyTile = GridManager.instance.getTileAtPosition(new Vector2(6, 5));
+        
+        if (enemyTile != null) {
+            enemy = Instantiate(enemyPrefab, enemyTile.transform.position, Quaternion.identity);
+            enemyTile.setUnitOnTile(enemy);
+            activeEnemies.Add(enemy);
+        }
+    }
 }
