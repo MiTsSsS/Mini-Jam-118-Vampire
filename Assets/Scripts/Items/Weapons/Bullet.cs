@@ -21,18 +21,12 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.)
-    }*/
-
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.CompareTag("Ground") || collision.CompareTag("Bullet") || collision.CompareTag("Player")) {
             if (collision.CompareTag("Player")) Debug.Log(collision.name);
             return;
         }
-        // ||(collision.CompareTag("Enemy") && collision == collision.GetComponent<CircleCollider2D>())
 
-        Debug.Log(collision.name);
         collision.GetComponent<BaseUnit>().takeDamage(damage);
         Destroy(gameObject);
     }

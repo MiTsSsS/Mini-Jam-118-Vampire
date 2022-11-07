@@ -34,6 +34,13 @@ public class Item {
         Crossbow
     }
 
+    public enum ItemRarity {
+        Common,
+        Rare,
+        Epic,
+        Artifact
+    }
+
     public bool isStackable() {
         switch (itemType) {
             default:

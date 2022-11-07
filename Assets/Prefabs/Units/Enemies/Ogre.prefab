@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7725935628173599440}
   - component: {fileID: 8819498454100368864}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Ogre
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupiedTile: {fileID: 0}
-  unitName: Ogre
   unitType: 1
   healthbar: {fileID: 6099839773259242046}
   unitStats:
@@ -186,7 +185,18 @@ MonoBehaviour:
     baseDamage: 3
     physicalDamageResist: 0
     spellDamageResist: 0
+  itemRarityDropRate:
+    common: 100
+    rare: -1
+    epic: -1
+    artifact: -1
+  unitName: Ogre
   stance: 0
+  itemDropRate:
+    common: 0
+    rare: 0
+    epic: 0
+    artifact: 0
   isPlayerInRange: 0
 --- !u!50 &7725935628173599440
 Rigidbody2D:

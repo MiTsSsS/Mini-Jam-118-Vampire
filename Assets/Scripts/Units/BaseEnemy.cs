@@ -9,13 +9,7 @@ using Random = UnityEngine.Random;
 
 public class BaseEnemy : BaseUnit {
 
-    [System.Serializable]
-    public struct ItemDropRate {
-        public int common;
-        public int rare;
-        public int epic;
-        public int artifact;
-    }
+
 
     public EnemyStance stance;
 
@@ -101,6 +95,7 @@ public class BaseEnemy : BaseUnit {
     public float calculateOutgoingDamage() {
         return unitStats.baseDamage;
     }
+    //End Combat
 }
 
 public enum EnemyStance {
