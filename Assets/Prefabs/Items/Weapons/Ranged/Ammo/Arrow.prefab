@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1926297665672059567}
   - component: {fileID: 3938977595339159799}
   - component: {fileID: 106617216953720041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -150,4 +150,3 @@ MonoBehaviour:
   speed: 10
   damage: 10
   rb: {fileID: 3938977595339159799}
-  bulletCollider: {fileID: 1926297665672059567}

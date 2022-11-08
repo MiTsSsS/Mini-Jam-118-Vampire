@@ -9,9 +9,8 @@ public class GridManager : MonoBehaviour
     public static GridManager instance;
 
     [SerializeField] private int width, height;
-
     [SerializeField] private BaseTile tile;
-
+    [SerializeField] private LayerMask layersToIgnoreMouseEvents;
     [SerializeField] private List<Sprite> tileSprites;
 
     public BaseTile hoveredTile;
@@ -20,7 +19,7 @@ public class GridManager : MonoBehaviour
 
     private void Start() {
         tiles = new Dictionary<Vector2, BaseTile>();
-
+        Camera.main.eventMask = layersToIgnoreMouseEvents;
         generateGrid();
     }
 
@@ -71,6 +70,14 @@ public class GridManager : MonoBehaviour
         }
 
         UnitManager.instance.spawnPlayer();
+    }
+
+    public int getGridWidth() {
+        return width;
+    }
+
+    public int getGridHeight() {
+        return height;
     }
 
     public BaseTile getTileAtPosition(Vector2 atPos) {

@@ -8,10 +8,8 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class BaseEnemy : BaseUnit {
-
-
-
     public EnemyStance stance;
+    public EnemyType enemyType;
 
     public ItemDropRate itemDropRate;
 
@@ -39,6 +37,10 @@ public class BaseEnemy : BaseUnit {
             if (otherUnit.unitType == UnitType.Player) {
                 otherUnit.takeDamage(calculateOutgoingDamage());
 
+                return;
+            }
+
+            else if(otherUnit.unitType == UnitType.Enemy) {
                 return;
             }
         }
@@ -95,6 +97,8 @@ public class BaseEnemy : BaseUnit {
     public float calculateOutgoingDamage() {
         return unitStats.baseDamage;
     }
+
+    public virtual void executeRangedAction() { }
     //End Combat
 }
 

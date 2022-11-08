@@ -22,8 +22,8 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.CompareTag("Ground") || collision.CompareTag("Bullet") || collision.CompareTag("Player")) {
-            if (collision.CompareTag("Player")) Debug.Log(collision.name);
+        if(collision.CompareTag("Ground") || collision.CompareTag("Bullet") || collision.CompareTag("Player")
+            || collision is CircleCollider2D) {
             return;
         }
 

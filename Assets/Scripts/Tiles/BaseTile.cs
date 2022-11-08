@@ -18,8 +18,8 @@ public class BaseTile : MonoBehaviour
     public List<BaseTile> neighboringTiles;
     private static readonly List<Vector2> tileNeighboorDirections = new List<Vector2>() {
             new Vector2(0, 1), new Vector2(-1, 0), new Vector2(0, -1), new Vector2(1, 0),
-            new Vector2(1, 1), new Vector2(1, -1), new Vector2(-1, -1), new Vector2(-1, 1)
-        };
+            new Vector2(1, 1), new Vector2(1, -1), new Vector2(-1, -1), new Vector2(-1, 1)  
+    };
 
     public Vector2 tilePosition;
 
@@ -33,10 +33,6 @@ public class BaseTile : MonoBehaviour
 
     private void OnMouseExit() {
         tileHighlight.SetActive(false);
-    }
-
-    private void OnMouseDown() {
-        //setUnitOnTile(UnitManager.instance.player);
     }
     //End Mouse Events
     

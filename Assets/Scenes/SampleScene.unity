@@ -492,7 +492,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -585,6 +585,9 @@ MonoBehaviour:
   width: 200
   height: 200
   tile: {fileID: 5824009768439697279, guid: f58124902b27a9b46bf1b7ccb2271690, type: 3}
+  layersToIgnoreMouseEvents:
+    serializedVersion: 2
+    m_Bits: 128
   tileSprites:
   - {fileID: 21300000, guid: cbcfe402a2577194aa941540ff2b6649, type: 3}
   - {fileID: 21300000, guid: f8be849a430e8974daa8482c49c7122a, type: 3}
@@ -718,9 +721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c0252e6a7f2a447bca39c85aa8a730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 2248382219881486954, guid: 99bd138b65f442247a559914512a57c3, type: 3}
-  - {fileID: 2248382219881486954, guid: 35c7122ec9965674db4bff0911cc456b, type: 3}
 --- !u!1 &1018918323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,9 +1082,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 3290290616454240603, guid: 90b2c0b427ecabe40a94389259b34041, type: 3}
   player: {fileID: 0}
-  enemyPrefab: {fileID: -5286364843279218634, guid: 99bd138b65f442247a559914512a57c3, type: 3}
+  enemyPrefab: {fileID: -5286364843279218634, guid: 35c7122ec9965674db4bff0911cc456b, type: 3}
   enemy: {fileID: 0}
-  activeEnemies: []
+  enemies:
+  - {fileID: -5286364843279218634, guid: 35c7122ec9965674db4bff0911cc456b, type: 3}
+  - {fileID: -5286364843279218634, guid: 99bd138b65f442247a559914512a57c3, type: 3}
+  enemySpawnInterval: 1
 --- !u!4 &1394032755
 Transform:
   m_ObjectHideFlags: 0

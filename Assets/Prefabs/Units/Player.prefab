@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7723047366967522678}
   - component: {fileID: 3364537950403702130}
   - component: {fileID: 1314956194200766533}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 3290290616454240603}
   - component: {fileID: 8009152842381857599}
   - component: {fileID: 6904124267166063823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -178,7 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupiedTile: {fileID: 0}
-  unitName: Player
   unitType: 0
   healthbar: {fileID: 5680995033218920116}
   unitStats:
@@ -187,6 +186,12 @@ MonoBehaviour:
     baseDamage: 5
     physicalDamageResist: 0
     spellDamageResist: 0
+  itemRarityDropRate:
+    common: 0
+    rare: 0
+    epic: 0
+    artifact: 0
+  unitName: Player
   inventoryUI: {fileID: 0}
   weaponInPrefab: {fileID: 4212577458750228855}
 --- !u!114 &8009152842381857599
@@ -229,7 +234,7 @@ GameObject:
   - component: {fileID: 6676052493018184430}
   - component: {fileID: 1459102322860789348}
   - component: {fileID: 1227239124264762750}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2554404393695186165}
   - component: {fileID: 6705398921760935458}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +396,7 @@ GameObject:
   - component: {fileID: 238436497384635705}
   - component: {fileID: 5822290803030474285}
   - component: {fileID: 5680995033218920116}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -104,11 +104,16 @@ public class BaseUnit : MonoBehaviour
     }
 
     public void onUnitDie(UnitType type) {
-        var itemTypeToDrop = GameManager.instance.getItemToDrop(getRandomRarityForDroppableItem());
+        if (type == UnitType.Enemy) {
+            var itemTypeToDrop = GameManager.instance.getItemToDrop(getRandomRarityForDroppableItem());
 
-        dropItem(itemTypeToDrop);
+            dropItem(itemTypeToDrop);
+            Destroy(gameObject);
+        }
 
-        Destroy(gameObject);
+        else {
+            Destroy(gameObject);
+        }
     }
 
     public void dropItem(Item.ItemType itemType) {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5776507373321829902}
   - component: {fileID: 2513216702754893434}
   - component: {fileID: 708803765356156862}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,8 @@ GameObject:
   - component: {fileID: -5286364843279218634}
   - component: {fileID: 7725935628173599440}
   - component: {fileID: 8819498454100368864}
-  m_Layer: 0
+  - component: {fileID: 5025343857277186468}
+  m_Layer: 7
   m_Name: Ogre
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -192,6 +193,7 @@ MonoBehaviour:
     artifact: -1
   unitName: Ogre
   stance: 0
+  enemyType: 0
   itemDropRate:
     common: 0
     rare: 0
@@ -245,6 +247,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7550472, y: 1}
   m_EdgeRadius: 0
+--- !u!58 &5025343857277186468
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2248382219881486954}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.5
 --- !u!1 &2868552372333345377
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +274,7 @@ GameObject:
   - component: {fileID: 3891476229333854503}
   - component: {fileID: 7163703082223050881}
   - component: {fileID: 2923837123983606139}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +352,7 @@ GameObject:
   - component: {fileID: 4401903770199813323}
   - component: {fileID: 2226769866754935824}
   - component: {fileID: 6099839773259242046}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
