@@ -13,12 +13,21 @@ using Random = UnityEngine.Random;
 public class BaseEnemy : BaseUnit {
     public EnemyStance stance;
     public EnemyType enemyType;
-
+    public List<BaseUnit> unitsInRange;
     public ItemDropRate itemDropRate;
-
     public bool isPlayerDetected = false;
-
     public Collider2D detectionRadius;
+
+    private void Awake() {
+        unitsInRange = new List<BaseUnit>();
+    }
+
+    //Debug
+    /*private void Update() {
+        foreach (var unit in unitsInRange) {
+            Debug.Log(name + unit.name);
+        }
+    }*/
 
     public void setIsPlayerDetected(bool isDetected) {
         isPlayerDetected = isDetected;
@@ -35,14 +44,20 @@ public class BaseEnemy : BaseUnit {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
             setIsPlayerDetected(true);
-            Debug.Log("ENTER DETECTION COLLISION");
+        }
+
+        if(collision.GetComponent<BaseUnit>() != null) {
+            unitsInRange.Add(collision.GetComponent<BaseUnit>());
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
             setIsPlayerDetected(false);
-            Debug.Log("EXIT DETECTION COLLISION");
+        }
+
+        if (collision.GetComponent<BaseUnit>() != null) {
+            unitsInRange.Remove(collision.GetComponent<BaseUnit>());
         }
     }
 
