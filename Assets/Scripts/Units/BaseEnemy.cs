@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using Unity.Mathematics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 public class BaseEnemy : BaseUnit {
@@ -13,7 +16,13 @@ public class BaseEnemy : BaseUnit {
 
     public ItemDropRate itemDropRate;
 
-    public bool isPlayerInRange = false;
+    public bool isPlayerDetected = false;
+
+    public Collider2D detectionRadius;
+
+    public void setIsPlayerDetected(bool isDetected) {
+        isPlayerDetected = isDetected;
+    }
 
     private void OnEnable() {
         PlayerUnit.OnPlayerMove += moveEnemy;
@@ -23,11 +32,25 @@ public class BaseEnemy : BaseUnit {
         PlayerUnit.OnPlayerMove -= moveEnemy;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            setIsPlayerDetected(true);
+            Debug.Log("ENTER DETECTION COLLISION");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            setIsPlayerDetected(false);
+            Debug.Log("EXIT DETECTION COLLISION");
+        }
+    }
+
     //Movement
     public void moveEnemy() {
         BaseTile targetTile = GridManager.instance.getTileAtPosition(getOccupiedTile().tilePosition - getDistanceDirectionFromPlayer());
         
-        if (targetTile == null) {
+        if (targetTile == null || !isPlayerDetected) {
             return;
         }
 
@@ -45,6 +68,7 @@ public class BaseEnemy : BaseUnit {
             }
         }
 
+        Debug.Log("ENEMY MOVED");
         targetTile.setUnitOnTile(this);
     }
 

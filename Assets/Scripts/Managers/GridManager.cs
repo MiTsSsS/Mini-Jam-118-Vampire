@@ -4,13 +4,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class GridManager : MonoBehaviour
-{
+public class GridManager : MonoBehaviour {
     public static GridManager instance;
 
     [SerializeField] private int width, height;
     [SerializeField] private BaseTile tile;
-    [SerializeField] private LayerMask layersToIgnoreMouseEvents;
     [SerializeField] private List<Sprite> tileSprites;
 
     public BaseTile hoveredTile;
@@ -19,7 +17,6 @@ public class GridManager : MonoBehaviour
 
     private void Start() {
         tiles = new Dictionary<Vector2, BaseTile>();
-        Camera.main.eventMask = layersToIgnoreMouseEvents;
         generateGrid();
     }
 

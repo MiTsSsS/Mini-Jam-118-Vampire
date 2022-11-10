@@ -585,9 +585,6 @@ MonoBehaviour:
   width: 200
   height: 200
   tile: {fileID: 5824009768439697279, guid: f58124902b27a9b46bf1b7ccb2271690, type: 3}
-  layersToIgnoreMouseEvents:
-    serializedVersion: 2
-    m_Bits: 128
   tileSprites:
   - {fileID: 21300000, guid: cbcfe402a2577194aa941540ff2b6649, type: 3}
   - {fileID: 21300000, guid: f8be849a430e8974daa8482c49c7122a, type: 3}
@@ -1087,7 +1084,8 @@ MonoBehaviour:
   enemies:
   - {fileID: -5286364843279218634, guid: 35c7122ec9965674db4bff0911cc456b, type: 3}
   - {fileID: -5286364843279218634, guid: 99bd138b65f442247a559914512a57c3, type: 3}
-  enemySpawnInterval: 1
+  - {fileID: 3971824779880065768, guid: 56f484a829d9b31459c1fc1ff5aafb5c, type: 3}
+  enemySpawnInterval: 10
 --- !u!4 &1394032755
 Transform:
   m_ObjectHideFlags: 0

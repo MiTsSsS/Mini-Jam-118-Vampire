@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5824009768439697279
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 954252382431735331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e19d7bf596f83d42b8d7bee9dc4f7b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 21bc44c24142c7b46aadd7c1abb3fcf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 954252382431735330}
