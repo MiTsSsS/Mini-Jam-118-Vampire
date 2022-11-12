@@ -11,3 +11,6 @@ For now, the game goes on until the player dies and a random enemy chosen from a
 - Move in the 4 directions
 - Pick up and use items
 - Attack enemies
+
+# Preview
+Coming soon!
