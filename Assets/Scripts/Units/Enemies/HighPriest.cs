@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class HighPriest : BaseEnemy
 {
+    public float healValue;
+
     private void OnEnable() {
         PlayerUnit.OnPlayerMove += moveEnemy;
         PlayerUnit.OnPlayerMove += executeRangedAction;
@@ -16,6 +18,10 @@ public class HighPriest : BaseEnemy
     }
 
     public override void executeRangedAction() {
-        
+        foreach(var enemy in unitsInRange) {
+            if(enemy.unitType == UnitType.Enemy) {
+                enemy.heal(healValue);
+            }
+        }
     }
 }

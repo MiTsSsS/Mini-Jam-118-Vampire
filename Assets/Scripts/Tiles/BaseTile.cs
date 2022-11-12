@@ -5,8 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEditor.Search;
 using UnityEngine;
 
-public class BaseTile : MonoBehaviour
-{
+public class BaseTile : MonoBehaviour {
     [SerializeField] private SpriteRenderer spriteRenderer;
     
     [SerializeField] private GameObject tileHighlight;
@@ -23,7 +22,7 @@ public class BaseTile : MonoBehaviour
 
     public Vector2 tilePosition;
 
-    public bool isWalkable;
+    public bool isWalkable = true;
 
     //Mouse Events
     private void OnMouseEnter() {
@@ -43,7 +42,7 @@ public class BaseTile : MonoBehaviour
         }
 
         unit.transform.position = tilePosition;
-        setOccupyingUnit(unit); 
+        setOccupyingUnit(unit);
     }
 
     public void setTilePosition(Vector2 pos) {
@@ -82,6 +81,18 @@ public class BaseTile : MonoBehaviour
         }
 
         Destroy(item.gameObject);
+    }
+
+    public bool checkTileAvailability() {
+        if (itemOnTile != null) {
+            Debug.Log("ITEM ON TILE NOT NULL");
+        }
+
+        Debug.Log("Item on tile: " + (itemOnTile == null).ToString());
+        Debug.Log("Occupying unit: " + (occupyingUnit == null).ToString());
+        Debug.Log("Is Walkable: " + isWalkable);
+        
+        return itemOnTile == null && occupyingUnit == null && isWalkable;
     }
     //End Tile Utility
 }

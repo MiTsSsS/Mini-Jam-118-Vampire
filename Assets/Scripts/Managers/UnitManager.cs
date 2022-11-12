@@ -8,7 +8,7 @@ public class UnitManager : MonoBehaviour
     public static UnitManager instance;
 
     public PlayerUnit playerPrefab, player;
-    public BaseEnemy enemyPrefab, enemy;
+    public BaseEnemy enemyPrefab, enemy, enemyHealer;
     public List<BaseEnemy> enemies;
     public int enemySpawnInterval;
     private List<BaseEnemy> activeEnemies;
@@ -25,21 +25,14 @@ public class UnitManager : MonoBehaviour
 
     public void spawnPlayer() {
         // BaseTile playerTile = GridManager.instance.getTileAtPosition(new Vector2(GridManager.instance.getGridWidth() / 2, GridManager.instance.getGridHeight() / 2));
-        BaseTile playerTile = GridManager.instance.getTileAtPosition(new Vector2(6, 5));
+        BaseTile playerTile = GridManager.instance.getTileAtPosition(new Vector2(5, 5));
 
-        if (playerTile != null) {
+        //if (playerTile.checkTileAvailability()) {
+        if(playerTile.checkTileAvailability()) {
             player = Instantiate(playerPrefab, playerTile.transform.position, Quaternion.identity); 
             playerTile.setUnitOnTile(player);
 
             GameManager.instance.setupCamera(player);
-        }
-
-        BaseTile enemyTile = GridManager.instance.getTileAtPosition(new Vector2(10, 10));
-
-        if (enemyTile != null && enemyTile.occupyingUnit == null) {
-            enemy = Instantiate(enemyPrefab, enemyTile.transform.position, Quaternion.identity);
-            enemyTile.setUnitOnTile(enemy);
-            activeEnemies.Add(enemy);
         }
     }
 
@@ -56,7 +49,8 @@ public class UnitManager : MonoBehaviour
 
         BaseTile enemyTile = GridManager.instance.getTileAtPosition(new Vector2(randomX, randomY));
 
-        if (enemyTile != null && enemyTile.occupyingUnit == null) {
+        //if (enemyTile.checkTileAvailability()) {
+        if (enemyTile != null && enemyTile.occupyingUnit == null) { 
             enemy = Instantiate(enemies.ElementAt(randomIndex), enemyTile.transform.position, Quaternion.identity);
             enemyTile.setUnitOnTile(enemy);
             activeEnemies.Add(enemy);

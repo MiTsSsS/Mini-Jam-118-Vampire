@@ -229,9 +229,9 @@ MonoBehaviour:
   unitType: 1
   healthbar: {fileID: 6099839773259242046}
   unitStats:
-    hp: 0
-    maxHp: 0
-    baseDamage: 0
+    hp: 100
+    maxHp: 100
+    baseDamage: 5
     physicalDamageResist: 0
     spellDamageResist: 0
   itemRarityDropRate:
@@ -240,15 +240,17 @@ MonoBehaviour:
     epic: 0
     artifact: 0
   unitName: High Priest
-  stance: 1
+  stance: 2
   enemyType: 1
+  unitsInRange: []
   itemDropRate:
-    common: 0
-    rare: 0
-    epic: 0
-    artifact: 0
+    common: 50
+    rare: 25
+    epic: 10
+    artifact: 15
   isPlayerDetected: 0
   detectionRadius: {fileID: 1445833015933816463}
+  healValue: 10
 --- !u!50 &7725935628173599440
 Rigidbody2D:
   serializedVersion: 4
