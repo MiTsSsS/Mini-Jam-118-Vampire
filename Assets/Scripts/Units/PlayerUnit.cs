@@ -94,4 +94,11 @@ public class PlayerUnit : BaseUnit
 
         inventory.removeItem(item);
     }
+
+    public void shoot() {
+        var spawnedBullet = Instantiate(UnitManager.instance.player.weapon.weaponAmmoPrefab, UnitManager.instance.player.getOccupiedTile().tilePosition, Quaternion.identity);
+
+        spawnedBullet.GetComponent<Bullet>().target = GridManager.instance.hoveredTile.transform;
+        spawnedBullet.GetComponent<Bullet>().rotateSprite(GridManager.instance.hoveredTile.tilePosition);
+    }
 }

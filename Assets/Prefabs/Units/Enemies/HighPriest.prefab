@@ -181,7 +181,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9c501ebb0e57af64d9aa897f6d63dcdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -226,6 +226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupiedTile: {fileID: 0}
+  flashMaterial: {fileID: 2100000, guid: 7f2939a0acfcba844b2fbe38892b5e2a, type: 2}
+  duration: 0.1
   unitType: 1
   healthbar: {fileID: 6099839773259242046}
   unitStats:
@@ -235,19 +237,20 @@ MonoBehaviour:
     physicalDamageResist: 0
     spellDamageResist: 0
   itemRarityDropRate:
-    common: 0
-    rare: 0
-    epic: 0
-    artifact: 0
+    common: -1
+    rare: 100
+    epic: -1
+    artifact: -1
   unitName: High Priest
+  unitRenderer: {fileID: 2248382219881486955}
   stance: 2
   enemyType: 1
   unitsInRange: []
   itemDropRate:
-    common: 50
-    rare: 25
-    epic: 10
-    artifact: 15
+    common: -1
+    rare: 100
+    epic: -1
+    artifact: -1
   isPlayerDetected: 0
   detectionRadius: {fileID: 1445833015933816463}
   healValue: 10

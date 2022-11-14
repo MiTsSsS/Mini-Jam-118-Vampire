@@ -134,7 +134,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9c501ebb0e57af64d9aa897f6d63dcdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -179,6 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupiedTile: {fileID: 0}
+  flashMaterial: {fileID: 2100000, guid: 7f2939a0acfcba844b2fbe38892b5e2a, type: 2}
+  duration: 0.1
   unitType: 0
   healthbar: {fileID: 5680995033218920116}
   unitStats:
@@ -193,6 +195,7 @@ MonoBehaviour:
     epic: 0
     artifact: 0
   unitName: Player
+  unitRenderer: {fileID: 2248382219881486955}
   inventoryUI: {fileID: 0}
   weaponInPrefab: {fileID: 4212577458750228855}
 --- !u!114 &8009152842381857599

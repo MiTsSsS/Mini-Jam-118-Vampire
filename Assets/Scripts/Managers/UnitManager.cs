@@ -44,8 +44,8 @@ public class UnitManager : MonoBehaviour
         Debug.Log("RANDOM INDEX: " + randomIndex);
         Debug.Log("ENEMY SPAWNED!");
 
-        randomX = Random.Range(0, GridManager.instance.getGridWidth());
-        randomY = Random.Range(0, GridManager.instance.getGridHeight());
+        randomX = Random.Range(0, 20);
+        randomY = Random.Range(0, 20);
 
         BaseTile enemyTile = GridManager.instance.getTileAtPosition(new Vector2(randomX, randomY));
 

@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class BaseItem : MonoBehaviour
 {
-    private Item item;
-    public SpriteRenderer spriteRenderer;
+    private Item item;  
     private TextMeshPro textMeshPro;
+
+    public SpriteRenderer spriteRenderer;
+    public Light2D flash;
 
     private void Awake() {
         textMeshPro = transform.Find("ItemAmount").GetComponent<TextMeshPro>();
@@ -45,10 +48,21 @@ public class BaseItem : MonoBehaviour
         var spawnedItem = Instantiate(ItemAssets.instance.itemPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         
         BaseItem itemInWorld = spawnedItem.GetComponent<BaseItem>();
+        itemInWorld.getColorBasedOnRarity(item);
         itemInWorld.setItem(item);
 
         tile.setItemOnTile(itemInWorld);
 
         return itemInWorld;
+    }
+
+    private void getColorBasedOnRarity(Item item) {
+        switch(item.itemType) {
+            case Item.ItemType.Crossbow:
+                flash.color = Color.blue;
+                break;
+
+            default: break;
+        }
     }
 }

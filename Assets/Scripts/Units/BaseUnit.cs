@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class BaseUnit : MonoBehaviour
@@ -28,6 +29,8 @@ public class BaseUnit : MonoBehaviour
     }
 
     [SerializeField] private BaseTile occupiedTile;
+    [SerializeField] private Material flashMaterial;
+    [SerializeField] private float duration;
 
     public Weapon weapon;
     public UnitType unitType;
@@ -35,9 +38,15 @@ public class BaseUnit : MonoBehaviour
     public Stats unitStats;
     public ItemDropRate itemRarityDropRate;
     public string unitName;
+    public SpriteRenderer unitRenderer;
+
+    private Material originalMaterial;
+    private Coroutine flashRoutine;
 
     private void Start() {
         healthbar.setMaxHpValue(unitStats.maxHp);
+
+        originalMaterial = unitRenderer.material;
     }
 
     public void setUnitType(UnitType type) {
@@ -78,6 +87,7 @@ public class BaseUnit : MonoBehaviour
         unitStats.hp -= damageValue;
         Debug.Log("Damage taken: " + damageValue);
         Debug.Log("New Hp: " + unitStats.hp);
+        Flash(Color.red);
 
         if (unitStats.hp <= 0) {
             onUnitDie(unitType);
@@ -99,6 +109,7 @@ public class BaseUnit : MonoBehaviour
             unitStats.hp += value;
         }
 
+        Flash(Color.green);
         healthbar.setHp(unitStats.hp);
         Debug.Log("Health: " + unitStats.hp);
     }
@@ -108,18 +119,52 @@ public class BaseUnit : MonoBehaviour
             var itemTypeToDrop = GameManager.instance.getItemToDrop(getRandomRarityForDroppableItem());
 
             dropItem(itemTypeToDrop);
-            Destroy(gameObject);
         }
 
-        else {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     public void dropItem(Item.ItemType itemType) {
         BaseItem.spawnItemInWorld(new Item { itemType = itemType, amount = 1 }, occupiedTile);
     }
+
+    private IEnumerable spriteFlashEffect(Color color, float duration) {
+        unitRenderer.color = color;
+
+        yield return new WaitForSeconds(duration);
+
+        unitRenderer.color = Color.white;
+    }
     //End Combat
+
+    public void Flash(Color color) {
+        // If the flashRoutine is not null, then it is currently running.
+        if (flashRoutine != null) {
+            // In this case, we should stop it first.
+            // Multiple FlashRoutines the same time would cause bugs.
+            StopCoroutine(flashRoutine);
+        }
+
+        // Start the Coroutine, and store the reference for it.
+        flashRoutine = StartCoroutine(FlashRoutine(color));
+    }
+
+    private IEnumerator FlashRoutine(Color color) {
+        // Swap to the flashMaterial.
+        unitRenderer.material = flashMaterial;
+
+        // Set the desired color for the flash.
+        flashMaterial.color = color;
+
+        // Pause the execution of this function for "duration" seconds.
+        yield return new WaitForSeconds(duration);
+
+        // After the pause, swap back to the original material.
+        unitRenderer.material = originalMaterial;
+
+        // Set the flashRoutine to null, signaling that it's finished.
+        flashRoutine = null;
+    }
 }
 
 public enum UnitType {

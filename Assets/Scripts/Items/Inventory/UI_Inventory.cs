@@ -72,7 +72,7 @@ public class UI_Inventory : MonoBehaviour {
 
             x++;
 
-            if(x > 7) {
+            if(x > 6) {
                 x = 0;
                 y--;
             }
