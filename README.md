@@ -1,2 +1,19 @@
 # Mini Jam 118 - Vampire
- My entry for the Mini Jam 118 game jam.
+ The Mini Jam 118 had "Vampire" as a theme and "blood is lethal" as a limitation.  
+ This game was supposed to be my entry for the jam but I went overboard with the idea and it took way more time than I anticipated xD  
+ I am turning this project into a learning/testing project where I code features that I feel like implementing in a game in my spare time.
+   
+# Gameplay
+This game is a turn-based game.  
+For now, the game goes on until the player dies.  
+A random type of enemy chosen from a pool of enemies will keep spawning in random locations on the grid in a specified interval.
+
+# Mechanics
+- Move in the 4 directions
+- Pick up, drop and use items
+- Attack enemies
+
+# Preview
+<p align="center">
+  <img src="https://github.com/MiTsSsS/Mini-Jam-118-Vampire/blob/main/MiniJam118Preview.gif" width = 55%; height=55% />
+</p>
