@@ -5,7 +5,8 @@
    
 # Gameplay
 This game is a turn-based game.  
-For now, the game goes on until the player dies and a random enemy chosen from a pool of enemies will keep spawning in random locations on the grid.
+For now, the game goes on until the player dies.  
+A random type of enemy chosen from a pool of enemies will keep spawning in random locations on the grid in a specified interval.
 
 # Mechanics
 - Move in the 4 directions
