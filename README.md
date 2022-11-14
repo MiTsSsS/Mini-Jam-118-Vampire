@@ -4,7 +4,7 @@
  I am turning this project into a learning/testing project where I code features that I feel like implementing in a game in my spare time.
    
 # Gameplay
-This game is a tick based game where whenever the player moves, if they are in the range of enemy units, they move simultaneously.  
+This game is a turn-based game.  
 For now, the game goes on until the player dies and a random enemy chosen from a pool of enemies will keep spawning in random locations on the grid.
 
 # Mechanics
