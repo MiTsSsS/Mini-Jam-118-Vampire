@@ -10,7 +10,7 @@ A random type of enemy chosen from a pool of enemies will keep spawning in rando
 
 # Mechanics
 - Move in the 4 directions
-- Pick up and use items
+- Pick up, drop and use items
 - Attack enemies
 
 # Preview
