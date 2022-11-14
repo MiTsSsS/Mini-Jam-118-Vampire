@@ -15,5 +15,9 @@ A random type of enemy chosen from a pool of enemies will keep spawning in rando
 
 # Preview
 <p align="center">
-  <img src="https://github.com/MiTsSsS/Mini-Jam-118-Vampire/blob/main/MiniJam118Preview.gif" width = 55%; height=55% />
+  <img src="https://github.com/MiTsSsS/Mini-Jam-118-Vampire/blob/main/GitHub/MiniJam118.png" width = 70%; height=70% />
+</p>  
+
+<p align="center">
+  <img src="https://github.com/MiTsSsS/Mini-Jam-118-Vampire/blob/main/GitHub/MiniJam118Preview.gif" width = 70%; height=70% />
 </p>
