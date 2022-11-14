@@ -14,4 +14,6 @@ A random type of enemy chosen from a pool of enemies will keep spawning in rando
 - Attack enemies
 
 # Preview
-Coming soon!
+<p align="center">
+  <img src="https://github.com/MiTsSsS/Mini-Jam-118-Vampire/blob/main/MiniJam118Preview.gif" width = 55%; height=55% />
+</p>
