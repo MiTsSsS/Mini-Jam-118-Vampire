@@ -1,3 +1,6 @@
+![](https://img.shields.io/badge/-Unity-lightgrey?style=for-the-badge&logo=unity) 
+![](https://img.shields.io/badge/-C%20Sharp-%2303a9f4?style=for-the-badge&logo=csharp)
+
 # Mini Jam 118 - Vampire
  The Mini Jam 118 had "Vampire" as a theme and "blood is lethal" as a limitation.  
  This game was supposed to be my entry for the jam but I went overboard with the idea and it took way more time than I anticipated xD  
